@@ -1,5 +1,5 @@
 # Start with cuDNN base image
-FROM daquexian/cudnn-python:cuda9.1_cudn7_python3.6
+FROM daquexian/cudnn-python:cuda9.1_cudnn7_python3.6
 MAINTAINER daquexian <daquexian566@gmail.com>
 
 # Switch to USTC mirrors. Comment if you are not in China.
