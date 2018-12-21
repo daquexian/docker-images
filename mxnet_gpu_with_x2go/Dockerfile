@@ -33,7 +33,8 @@ RUN apt install aria2 -y
 
 RUN aria2c -s16 -x16 https://download-cf.jetbrains.com/python/pycharm-community-2018.3.2.tar.gz
 
-RUN "echo \"exec /usr/sbin/sshd\" > /run.sh"
+ADD run.sh /run.sh
+RUN chmod +x /run.sh
 
 CMD ["/run.sh"]
 
