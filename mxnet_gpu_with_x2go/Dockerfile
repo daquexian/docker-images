@@ -29,6 +29,8 @@ RUN echo "root:123456" | chpasswd
 
 EXPOSE 22
 
+RUN wget https://download-cf.jetbrains.com/python/pycharm-community-2018.3.2.tar.gz
+
 # The following is the way building from source, but failed
 # Clone MXNet repo
 # RUN cd /root && git clone --recursive --depth=1 https://github.com/apache/incubator-mxnet.git mxnet 
