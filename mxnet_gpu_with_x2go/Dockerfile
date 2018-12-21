@@ -33,7 +33,9 @@ RUN apt install aria2 -y
 
 RUN aria2c -s16 -x16 https://download-cf.jetbrains.com/python/pycharm-community-2018.3.2.tar.gz
 
-CMD ["exec /usr/sbin/sshd -D"]
+RUN "echo \"exec /usr/sbin/sshd\" > /run.sh"
+
+CMD ["/run.sh"]
 
 # The following is the way building from source, but failed
 # Clone MXNet repo
