@@ -29,7 +29,9 @@ RUN echo "root:123456" | chpasswd
 
 EXPOSE 22
 
-RUN wget https://download-cf.jetbrains.com/python/pycharm-community-2018.3.2.tar.gz
+RUN apt install aria2 -y
+
+RUN aria2c -s16 -x16 https://download-cf.jetbrains.com/python/pycharm-community-2018.3.2.tar.gz
 
 CMD ["exec /usr/sbin/sshd -D"]
 
