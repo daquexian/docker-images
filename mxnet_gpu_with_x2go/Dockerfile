@@ -23,13 +23,15 @@ RUN sed -i "s/#PasswordAuthentication/PasswordAuthentication/g" /etc/ssh/sshd_co
 
 RUN mkdir -p /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix
 
-RUN sed -i "s/mesg n/tty -s && mesg n/" /root/.profile
+RUN sed -i "s/mesg n/tty -s \&\& mesg n/" /root/.profile
 
 RUN echo "root:123456" | chpasswd
 
 EXPOSE 22
 
 RUN wget https://download-cf.jetbrains.com/python/pycharm-community-2018.3.2.tar.gz
+
+CMD ["exec /usr/sbin/sshd -D"]
 
 # The following is the way building from source, but failed
 # Clone MXNet repo
