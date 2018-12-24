@@ -25,7 +25,6 @@ source $ZSH/oh-my-zsh.sh
 
 plugins=(
     git
-    archlinux
     history
     pip
     python
@@ -40,8 +39,7 @@ bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 bindkey '^[[Z' reverse-menu-complete
 
-alias vim=nvim
-
 # Map single control to escape
 xcape -e 'Control_L=Escape'
 xmodmap -e "keycode 66 = Shift_L NoSymbol Shift_L"
+[[ -e ~/.profile  ]] && emulate sh -c 'source ~/.profile'
