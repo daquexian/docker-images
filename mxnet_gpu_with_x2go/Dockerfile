@@ -38,5 +38,6 @@ RUN chmod +x /run.sh
 
 CMD ["/run.sh"]
 
-RUN echo "export PATH=/usr/local/nvidia/bin/:/usr/local/cuda/bin:$PATH" >> /root/.bashrc
-RUN echo "export LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64:$LD_LIBRARY_PATH" >> /root/.bashrc
+RUN echo "export PATH=/usr/local/nvidia/bin/:/usr/local/cuda/bin:$PATH" >> /root/.profile
+RUN echo "export LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64:$LD_LIBRARY_PATH" >> /root/.profile
+RUN echo "source /root/.profile" >> /root/.bashrc
