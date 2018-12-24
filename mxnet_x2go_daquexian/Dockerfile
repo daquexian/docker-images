@@ -8,10 +8,11 @@ COPY oh-my-zsh-install.sh /root/
 COPY oh-my-zsh-master.zip /root/
 WORKDIR /root/
 RUN unzip /root/oh-my-zsh-master.zip && mv oh-my-zsh-master .oh-my-zsh && rm /root/oh-my-zsh-master.zip
-COPY .zshrc /root/
 COPY zsh-autosuggestions-master.zip /root/
 RUN unzip /root/zsh-autosuggestions-master.zip && mv zsh-autosuggestions-master ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions && rm zsh-autosuggestions-master.zip
 RUN chsh -s $(which zsh)
+ARG CACHEBUST=1
+COPY .zshrc /root/
 RUN git clone https://github.com/daquexian/dot_files /root/dot_files
 RUN ln -s /root/dot_files/.gitconfig /root/.gitconfig && ln -s /root/dot_files/.tmux.conf && ln -s /root/dot_files/.tmux.conf.local
 RUN apt install xcape && pip3 install pynvim
