@@ -30,6 +30,7 @@ plugins=(
     pip
     python
     vi-mode
+    zsh-autosuggestions
     )
 
 bindkey -v
@@ -43,3 +44,4 @@ alias vim=nvim
 
 # Map single control to escape
 xcape -e 'Control_L=Escape'
+xmodmap -e "keycode 66 = Shift_L NoSymbol Shift_L"
