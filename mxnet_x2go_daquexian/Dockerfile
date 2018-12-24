@@ -12,7 +12,8 @@ COPY oh-my-zsh-master.zip /root/
 WORKDIR /root/
 RUN unzip /root/oh-my-zsh-master.zip && mv oh-my-zsh-master .oh-my-zsh && rm /root/oh-my-zsh-master.zip
 COPY .zshrc /root/
-RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+COPY zsh-autosuggestions-master.zip /root/
+RUN unzip /root/zsh-autosuggestions-master.zip && mv zsh-autosuggestions-master ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions && rm zsh-autosuggestions-master.zip
 RUN chsh -s $(which zsh)
 
 RUN git clone https://github.com/daquexian/dot_files /root/dot_files
