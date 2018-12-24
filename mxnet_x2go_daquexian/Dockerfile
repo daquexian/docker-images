@@ -16,5 +16,7 @@ COPY zsh-autosuggestions-master.zip /root/
 RUN unzip /root/zsh-autosuggestions-master.zip && mv zsh-autosuggestions-master ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions && rm zsh-autosuggestions-master.zip
 RUN chsh -s $(which zsh)
 
+ARG CACHEBUST=1
 RUN git clone https://github.com/daquexian/dot_files /root/dot_files
 RUN ln -s /root/dot_files/.vimrc /root/.vimrc && cp /root/dot_files/.vimrc.local /root/ && ln -s /root/dot_files/.gitconfig /root/.gitconfig
+RUN apt install xcape && pip3 install pynvim
